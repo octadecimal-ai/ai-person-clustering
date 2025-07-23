@@ -1,0 +1,104 @@
+{
+  "system": {
+    "name": "AI Person Clustering System",
+    "version": "1.0.0",
+    "description": "Advanced AI system for automatic person grouping using ensemble YOLO, multi-modal features, and intelligent clustering",
+    "platform": "auto-detect",
+    "device": "auto"
+  },
+  
+  "models": {
+    "yolo": {
+      "ensemble_models": ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x"],
+      "weights": {
+        "yolov8x": 1.0,
+        "yolov8l": 0.9,
+        "yolov8m": 0.8,
+        "yolov8s": 0.7,
+        "yolov8n": 0.6
+      },
+      "confidence_thresholds": {
+        "yolov8x": 0.25,
+        "yolov8l": 0.3,
+        "yolov8m": 0.35,
+        "yolov8s": 0.4,
+        "yolov8n": 0.45
+      },
+      "device": "auto",
+      "batch_size": 1
+    },
+    
+    "face_recognition": {
+      "primary_method": "face_recognition",
+      "fallback_methods": ["mediapipe", "insightface"],
+      "encoding_model": "large",
+      "distance_metric": "euclidean",
+      "tolerance": 0.6
+    },
+    
+    "feature_extraction": {
+      "face_features": true,
+      "body_pose": true,
+      "clothing_colors": true,
+      "hair_features": true,
+      "normalize_features": true,
+      "feature_dimensions": 512
+    }
+  },
+  
+  "clustering": {
+    "algorithms": ["DBSCAN", "AgglomerativeClustering", "FaceSimilarity"],
+    "primary_algorithm": "DBSCAN",
+    "dbscan": {
+      "eps": 0.5,
+      "min_samples": 2,
+      "metric": "euclidean"
+    },
+    "agglomerative": {
+      "n_clusters": null,
+      "linkage": "ward",
+      "distance_threshold": 0.5
+    },
+    "face_similarity": {
+      "threshold": 0.6,
+      "min_cluster_size": 2
+    }
+  },
+  
+  "preprocessing": {
+    "image_formats": ["jpg", "jpeg", "png", "bmp", "tiff"],
+    "max_image_size": [1920, 1080],
+    "min_person_size": [50, 100],
+    "nms_threshold": 0.4
+  },
+  
+  "performance": {
+    "lazy_loading": true,
+    "batch_processing": true,
+    "max_batch_size": 8,
+    "memory_optimization": true,
+    "cache_models": true
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "save_logs": true,
+    "log_file": ".dev/logs/system.log"
+  },
+  
+  "debugging": {
+    "save_debug_images": false,
+    "verbose_logging": false,
+    "save_intermediate_results": false,
+    "profile_performance": false
+  },
+  
+  "paths": {
+    "models_dir": "./models",
+    "data_dir": "./data", 
+    "results_dir": "./results",
+    "cache_dir": "./cache",
+    "temp_dir": "./temp"
+  }
+} 

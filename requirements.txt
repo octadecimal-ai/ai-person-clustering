@@ -1,0 +1,49 @@
+# =============================================================================
+# AI PERSON CLUSTERING SYSTEM - REQUIREMENTS
+# Apple Silicon M1 Compatible Dependencies
+# =============================================================================
+
+# Core ML/AI Frameworks
+torch>=2.0.0           # PyTorch with MPS support for M1
+torchvision>=0.15.0     # Computer vision package
+ultralytics>=8.0.0      # YOLOv8 with M1 support
+
+# Computer Vision & Image Processing  
+opencv-python>=4.8.0   # OpenCV for image processing
+pillow>=9.5.0          # Image manipulation
+numpy>=1.24.0,<2.0.0   # Numerical computing
+
+# Face Recognition (M1 Compatible Options)
+face-recognition>=1.3.0  # Primary face recognition library
+mediapipe>=0.10.0       # Google MediaPipe for pose/face detection
+# insightface>=0.7.3    # Will try after face-recognition works
+
+# Scientific Computing
+scipy>=1.10.0          # Scientific computing
+scikit-learn>=1.3.0    # Machine learning algorithms
+pandas>=2.0.0          # Data manipulation
+matplotlib>=3.7.0      # Plotting
+seaborn>=0.12.0        # Statistical visualization
+
+# Clustering & Analysis
+faiss-cpu>=1.7.4       # Fast similarity search (CPU version for M1)
+umap-learn>=0.5.3      # Dimensionality reduction
+hdbscan>=0.8.29        # Hierarchical clustering
+
+# Utilities & Configuration
+pyyaml>=6.0            # YAML configuration files
+tqdm>=4.65.0           # Progress bars
+pathlib2>=2.3.7        # Path utilities
+typing-extensions>=4.5.0  # Type hints
+
+# Development & Testing
+pytest>=7.4.0         # Testing framework
+pytest-cov>=4.1.0     # Coverage testing
+black>=23.0.0          # Code formatting
+flake8>=6.0.0          # Code linting
+
+# Optional: AutoGen Integration (if needed later)
+# pyautogen>=0.1.0
+
+# Platform-specific optimizations
+# Will be installed conditionally based on detected platform 
