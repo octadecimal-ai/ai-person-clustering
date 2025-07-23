@@ -1,0 +1,407 @@
+# 🎯 CURSOR RULES - System Grupowania Osób na Zdjęciach
+
+## 🚨 OBLIGATORYJNE ZASADY REALIZACJI PLANU
+
+**UWAGA: Te zasady są nadrzędne względem wszystkich innych i MUSZĄ być przestrzegane podczas realizacji każdego etapu!**
+
+### 📋 Proces realizacji etapów:
+1. **PRZED REALIZACJĄ ETAPU**: 
+   - Przeanalizuj etap z PLAN.MD
+   - Napisz użytkownikowi jakie są ewentualne trudności
+   - Wskaż gdzie możesz potrzebować pomocy
+   - Sprawdź czy potrzebujesz API keys, haseł, kont - zapytaj o nie PRZED rozpoczęciem
+   - Upewnij się, że masz wszystkie wymagane dane
+
+2. **PODCZAS REALIZACJI**:
+   - Staraj się robić sam jak najwięcej
+   - Po każdej nowej funkcjonalności rób test
+   - Testuj wszystkie możliwe przypadki brzegowe
+   - Dokumentuj kod zgodnie z zasadami
+
+3. **PO ZAKOŃCZENIU ETAPU**:
+   - Uzupełnij PLAN.MD o informację jak został zrealizowany etap
+   - Dodaj jakie wystąpiły trudności i jak je rozwiązano
+   - Oznacz ukończone punkty jako ✅ z datą
+   - Przygotuj commit z opisem co zostało zrealizowane
+   - NIE rób push - tylko commit
+
+### ⚠️ ZASADA FUNDAMENTALNA:
+**NIGDY nie mów, że zakończyłeś jakiś etap, jeśli nie przetestowałeś wcześniej wszelkich możliwych funkcjonalności i przypadków brzegowych!**
+
+Testowanie musi obejmować:
+- ✅ Funkcjonalność podstawową
+- ✅ Przypadki brzegowe (edge cases)
+- ✅ Obsługę błędów
+- ✅ Wydajność na różnych danych
+- ✅ Kompatybilność (różne systemy/hardware)
+
+### 📊 Aktualizacja PLAN.MD:
+Po każdym etapie dodaj sekcję:
+```markdown
+### ✅ ETAP X - UKOŃCZONY (DATA)
+**Zrealizowane funkcjonalności:**
+- [ funkcjonalność 1 ]
+- [ funkcjonalność 2 ]
+
+**Wystąpione trudności:**
+- [ trudność 1 i jak ją rozwiązano ]
+
+**Testy wykonane:**
+- [ typ testu 1 ]
+- [ typ testu 2 ]
+
+**Czas realizacji:** X godzin
+```
+
+### 🔐 Wymagane dane zewnętrzne:
+Przed rozpoczęciem sprawdź czy potrzebujesz:
+- API keys (OpenAI, Hugging Face, etc.)
+- Konta (GitHub, Docker Hub, etc.)
+- Hasła/tokeny
+- Licencje software
+- Dostęp do zewnętrznych serwisów
+
+### 💻 SPECYFIKACJA ŚRODOWISKA:
+- **System**: MacBook Pro M1 16GB RAM z macOS Sequoia 15.5
+- **Auto run**: Wszystko można uruchamiać automatycznie
+- **Sudo permissions**: Jeśli potrzebujesz hasła sudo - napisz i uruchom skrypt .sh który o nie zapyta
+- **Hardware compatibility**: PRZED ściągnięciem modelu sprawdź czy zadziała na Apple Silicon M1
+- **Fallback solutions**: Jeśli model nie zadziała - podaj alternatywy (API access, inne modele)
+- **Open Source requirement**: Wszystko musi być open source
+
+### 🔔 SYSTEM ALERTÓW:
+```bash
+# Alert gdy potrzebujesz pomocy użytkownika
+afplay /System/Library/Sounds/Ping.aiff
+
+# Alternatywne dźwięki:
+# afplay /System/Library/Sounds/Basso.aiff  # Błąd
+# afplay /System/Library/Sounds/Funk.aiff   # Sukces
+```
+
+### 📊 DANE TESTOWE:
+- **Źródło**: Ściągnij z internetu (póki co nie ma lokalnych)
+- **Wymagania**: 10 osób po 5 zdjęć w różnych pozach
+- **Cel**: Te same osoby w różnych pozach dla testów klastrowania
+- **Format**: JPG/PNG, różne rozdzielczości
+
+---
+
+## 📋 KONTEKST PROJEKTU
+
+Ten projekt implementuje zaawansowany system AI do automatycznego grupowania osób na zdjęciach używając:
+- **Ensemble modeli YOLO** (v8n, v8s, v8m, v8l, v8x) do detekcji osób
+- **Multi-modal feature extraction** (twarze, poza ciała, ubrania, kolory)
+- **Inteligentne klastrowanie** (DBSCAN, Agglomerative, Face Similarity)
+- **AutoGen integration** (opcjonalnie) dla LLM wsparcia
+
+### Główne komponenty:
+- `EnsembleYOLODetector` - wykrywanie osób multiple modelami
+- `AdvancedFeatureExtractor` - ekstrakcja cech wizualnych 
+- `IntelligentClustering` - adaptacyjne klastrowanie
+- `ComprehensivePersonGroupingSystem` - główny system orchestrujący
+
+---
+
+## 🐍 KONWENCJE KODOWANIA PYTHON
+
+### Styl kodu:
+- **PEP 8** compliance z line length 100 znaków
+- **Type hints** dla wszystkich funkcji i metod
+- **Docstrings** w formacie Google/NumPy style
+- **f-strings** dla formatowania stringów
+- **Pathlib** zamiast os.path dla ścieżek
+
+### Nazewnictwo:
+- Klasy: `PascalCase` (np. `EnsembleYOLODetector`)
+- Funkcje/metody: `snake_case` (np. `extract_face_features`)
+- Stałe: `UPPER_SNAKE_CASE` (np. `DEFAULT_CONFIDENCE_THRESHOLD`)
+- Prywatne metody: `_private_method`
+
+### Struktura klas:
+```python
+class ComponentName:
+    """Dokumentacja klasy."""
+    
+    def __init__(self, config: Optional[Dict] = None):
+        self.logger = logging.getLogger(__name__)
+        # ... inicjalizacja
+    
+    def public_method(self, param: Type) -> ReturnType:
+        """Dokumentacja metody."""
+        pass
+    
+    def _private_method(self) -> None:
+        """Metoda prywatna."""
+        pass
+```
+
+---
+
+## 🤖 ZASADY PRACY Z AI/ML KOMPONENTAMI
+
+### Zarządzanie modelami:
+- **Lazy loading** - ładuj modele tylko gdy potrzebne
+- **Error handling** - graceful degradation jeśli model niedostępny
+- **Device management** - automatyczny dobór CPU/CUDA/MPS
+- **Memory optimization** - zwolnij pamięć po użyciu
+- **Model versioning** - dokumentuj wersje modeli
+
+### YOLO Models:
+```python
+# Zawsze używaj ensemble approach
+models = {
+    'yolov8x': {'weight': 1.0, 'conf_threshold': 0.25},
+    'yolov8l': {'weight': 0.9, 'conf_threshold': 0.3},
+    # ...
+}
+
+# Weighted NMS dla ensemble results
+final_detections = self._weighted_nms(all_detections, iou_threshold=0.6)
+```
+
+### Feature Extraction:
+- **Multi-modal approach** - zawsze próbuj wszystkie typy cech
+- **Fallback mechanisms** - jeśli InsightFace fails, użyj face_recognition
+- **Feature normalization** - standardyzuj przed klastrowanie
+- **Dimensionality consistency** - handle variable feature sizes
+
+### Clustering:
+- **Adaptive parameters** - estymuj optymalne parametry z danych
+- **Multiple algorithms** - porównaj DBSCAN, Agglomerative, custom
+- **Quality metrics** - oceń jakość klastrowanie przed zwrotem
+- **Post-processing** - merge similar clusters, handle noise
+
+---
+
+## 📁 STRUKTURA PLIKÓW I ORGANIZACJA
+
+### Główne pliki:
+- `person_grouping_system.py` - główny system z wszystkimi komponentami
+- `config.json` - konfiguracja systemu
+- `requirements.txt` - dependencies
+- `PLAN.MD` - plan realizacji projektu
+
+### Struktura katalogów:
+```
+AiPersonClustering/
+├── .dev/                    # Narzędzia deweloperskie
+│   ├── time.sh             # Skrypt czasu
+│   ├── snapshot.sh         # Tworzenie patches
+│   └── logs/               # Logi konwersacji
+├── models/                 # Modele AI (cache)
+├── data/                   # Dane testowe
+├── results/                # Wyniki grupowania
+├── configs/                # Pliki konfiguracyjne
+└── tests/                  # Testy jednostkowe
+```
+
+### Import conventions:
+```python
+# Standardowe biblioteki
+import os
+import sys
+from pathlib import Path
+from typing import List, Dict, Optional, Tuple
+
+# Biblioteki zewnętrzne
+import cv2
+import numpy as np
+import torch
+from ultralytics import YOLO
+
+# Biblioteki AI/ML
+import face_recognition
+import insightface
+import mediapipe as mp
+from sklearn.cluster import DBSCAN
+
+# Lokalne importy
+from .components import EnsembleYOLODetector
+```
+
+---
+
+## 🧪 ZASADY TESTOWANIA
+
+### Unit Tests:
+- **Jeden test = jedna funkcjonalność**
+- **Mock external dependencies** (models, file I/O)
+- **Test edge cases** (empty images, no faces detected)
+- **Performance tests** dla czasochłonnych operacji
+
+### Integration Tests:
+- **End-to-end pipeline** z rzeczywistymi obrazami
+- **Different scenarios** (portrait, group, sport photos)
+- **Hardware compatibility** (CPU, CUDA, MPS)
+- **Memory stress tests** dla dużych batch
+
+### Test structure:
+```python
+class TestEnsembleYOLODetector:
+    def setup_method(self):
+        self.detector = EnsembleYOLODetector(device='cpu')
+    
+    def test_single_image_detection(self):
+        # Test podstawowej funkcjonalności
+        pass
+    
+    def test_empty_image_handling(self):
+        # Test edge case
+        pass
+```
+
+---
+
+## 📊 KONFIGURACJA I ZARZĄDZANIE
+
+### Config management:
+- **JSON configs** dla user-facing parameters
+- **Environment variables** dla credentials
+- **Default values** w kodzie z możliwością override
+- **Validation** parametrów przed użyciem
+
+### Logging:
+```python
+# Używaj structured logging
+self.logger.info(f"Processed {len(persons)} persons in {time:.2f}s", 
+                extra={'persons_count': len(persons), 'processing_time': time})
+
+# Różne poziomy dla różnych informacji
+self.logger.debug("Technical details")
+self.logger.info("User-relevant information")  
+self.logger.warning("Potential issues")
+self.logger.error("Actual errors")
+```
+
+### Error Handling:
+```python
+try:
+    result = risky_operation()
+    return result
+except SpecificException as e:
+    self.logger.warning(f"Expected issue: {e}")
+    return fallback_result()
+except Exception as e:
+    self.logger.error(f"Unexpected error: {e}")
+    raise
+```
+
+---
+
+## ⚡ WYDAJNOŚĆ I OPTYMALIZACJA
+
+### Memory Management:
+- **Process w batch** zamiast pojedynczo
+- **Clear cache** po przetworzeniu dużych grup
+- **Use generators** dla lazy loading dużych datasets
+- **Monitor memory usage** i warn przy high usage
+
+### GPU Optimization:
+- **Batch operations** kiedy możliwe
+- **Tensor operations** zamiast numpy loops
+- **Model switching** minimize dla performance
+- **Mixed precision** jeśli supported
+
+### Threading/Multiprocessing:
+```python
+# Threading dla I/O-bound operations
+with ThreadPoolExecutor(max_workers=4) as executor:
+    futures = [executor.submit(process_image, path) for path in paths]
+
+# Multiprocessing dla CPU-intensive
+with ProcessPoolExecutor(max_workers=cpu_count()) as executor:
+    results = list(executor.map(cpu_intensive_func, data))
+```
+
+---
+
+## 🔧 NARZĘDZIA DEWELOPERSKIE
+
+### Snapshot system:
+```bash
+# Po każdej istotnej zmianie
+.dev/snapshot.sh opis_zmiany
+```
+
+### Time tracking:
+```bash
+# Używaj przed zapisem timestampów  
+CURRENT_TIME=$(.dev/time.sh)
+```
+
+### Logging konwersacji:
+- Format: `YYYYMMDD_His_krotki_opis_watku.log`
+- Lokalizacja: `.dev/logs/`
+- Zawartość: pytanie, analiza, odpowiedź, wykonane działania
+
+---
+
+## 📚 DOKUMENTACJA
+
+### README updates:
+- **Keep in sync** z aktualną implementacją
+- **Include performance benchmarks** po testach
+- **Update installation guide** jeśli dependencies zmieniają się
+- **Add troubleshooting** dla common issues
+
+### Code comments:
+```python
+# Dlaczego coś robisz (business logic)
+# ensemble approach zwiększa accuracy o ~15% 
+detections = self._ensemble_detect(image)
+
+# Złożone algorytmy - jak działają
+# Weighted NMS: kombinuje predictions z wagami modeli
+# wyższe wagi = większy wpływ na final detection
+```
+
+### API Documentation:
+- **Type hints** dla wszystkich public methods
+- **Examples** w docstrings
+- **Parameter descriptions** ze units jeśli applicable
+- **Return value formats** clearly described
+
+---
+
+## 🚨 SPECJALNE INSTRUKCJE
+
+### Podczas implementacji:
+1. **Zawsze testuj** na małym zestawie danych najpierw
+2. **Profile performance** dla czasochłonnych operacji  
+3. **Validate results** - czy clusters make sense?
+4. **Handle failures gracefully** - system powinien degradować się łagodnie
+5. **Document decisions** - dlaczego wybrałeś konkretne parametry?
+
+### Przed commit:
+1. **Run tests** - przynajmniej unit tests pass
+2. **Check memory usage** - no memory leaks
+3. **Validate configs** - default config działa
+4. **Update PLAN.MD** - mark completed items ✅
+5. **Create snapshot** - `.dev/snapshot.sh description`
+
+### Debug mode:
+```python
+# Włącz gdy debugging
+config['save_debug_images'] = True
+config['verbose_logging'] = True 
+config['save_intermediate_results'] = True
+```
+
+---
+
+## 🎯 PRIORYTETY
+
+1. **WYSOKIE**: Podstawowa funkcjonalność (detection → features → clustering)
+2. **ŚREDNIE**: Optymalizacja, wizualizacje, comprehensive reporting
+3. **NISKIE**: AutoGen integration, advanced features, deployment
+
+### Quick wins:
+- Implementuj simplest version først
+- Add complexity incrementally
+- Always maintain working baseline
+- Optimize after correctness confirmed
+
+---
+
+*Te zasady powinny być używane przez wszystkich pracujących nad projektem dla spójności i jakości kodu.* 

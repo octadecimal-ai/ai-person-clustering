@@ -1,0 +1,88 @@
+KONWERSACJA: Utworzenie pliku .cursorrules z zasadami realizacji projektu
+DATA: 2025-07-23 21:22:48
+MODEL: Claude Sonnet 4
+
+=== PYTANIE UŻYTKOWNIKA ===
+Cudownie! <3 teraz poproszę Cię o utworzenie pliku .cursorrules gdzie wprowadzimy zadady realizacji projektu, ok ?
+
+=== ANALIZA ZADANIA ===
+Użytkownik chce utworzyć plik .cursorrules - to jest plik konfiguracyjny dla Cursor IDE, który zawiera zasady i instrukcje dla AI asystenta podczas pracy z konkretnym projektem. 
+
+Plik powinien uwzględniać:
+- Kontekst projektu (system AI do grupowania osób na zdjęciach)
+- Specyficzne zasady dla AI/ML projektu
+- Konwencje kodowania Python
+- Strukturę plików i organizację
+- Zasady testowania
+- Wydajność i optymalizację
+- Narzędzia deweloperskie (.dev/snapshot.sh, .dev/time.sh)
+- Dokumentację i logowanie
+
+=== ODPOWIEDŹ ASYSTENTA ===
+Utworzono kompleksowy plik .cursorrules zawierający:
+
+1. **KONTEKST PROJEKTU**
+   - Opis systemu AI do grupowania osób na zdjęciach
+   - Główne komponenty (EnsembleYOLODetector, AdvancedFeatureExtractor, etc.)
+   - Technologie (YOLO ensemble, multi-modal features, inteligentne klastrowanie)
+
+2. **KONWENCJE KODOWANIA PYTHON**
+   - PEP 8 compliance z line length 100
+   - Type hints, docstrings, f-strings
+   - Nazewnictwo (PascalCase dla klas, snake_case dla funkcji)
+   - Struktura klas z przykładami
+
+3. **ZASADY PRACY Z AI/ML KOMPONENTAMI**
+   - Zarządzanie modelami (lazy loading, error handling, device management)
+   - YOLO Models (ensemble approach, weighted NMS)
+   - Feature Extraction (multi-modal, fallback mechanisms)
+   - Clustering (adaptive parameters, multiple algorithms)
+
+4. **STRUKTURA PLIKÓW I ORGANIZACJA**
+   - Główne pliki projektu
+   - Struktura katalogów (models/, data/, results/, configs/)
+   - Import conventions
+
+5. **ZASADY TESTOWANIA**
+   - Unit tests (jeden test = jedna funkcjonalność)
+   - Integration tests (end-to-end pipeline)
+   - Test structure z przykładami
+
+6. **KONFIGURACJA I ZARZĄDZANIE**
+   - Config management (JSON, environment variables)
+   - Structured logging z przykładami
+   - Error handling patterns
+
+7. **WYDAJNOŚĆ I OPTYMALIZACJA**
+   - Memory management
+   - GPU optimization
+   - Threading/Multiprocessing z przykładami
+
+8. **NARZĘDZIA DEWELOPERSKIE**
+   - Snapshot system (.dev/snapshot.sh)
+   - Time tracking (.dev/time.sh)
+   - Logging konwersacji (format, lokalizacja)
+
+9. **DOKUMENTACJA**
+   - README updates
+   - Code comments (dlaczego, nie co)
+   - API Documentation
+
+10. **SPECJALNE INSTRUKCJE**
+    - Podczas implementacji (testuj, profile, validate)
+    - Przed commit (run tests, check memory, update PLAN.MD)
+    - Debug mode
+
+11. **PRIORYTETY**
+    - WYSOKIE: Podstawowa funkcjonalność
+    - ŚREDNIE: Optymalizacja, wizualizacje
+    - NISKIE: AutoGen integration, advanced features
+
+=== WYKONANE DZIAŁANIA ===
+1. Pobranie aktualnego czasu: 2025-07-23 21:22:48
+2. Utworzenie pliku .cursorrules z kompletnymi zasadami projektu
+3. Utworzenie snapshot: utworzenie_cursorrules_zasady_projektu
+4. Zapisanie tego loga konwersacji
+
+=== REZULTAT ===
+Plik .cursorrules został pomyślnie utworzony i zawiera kompleksowe zasady dla realizacji projektu systemu grupowania osób na zdjęciach. Zasady obejmują wszystkie aspekty pracy z AI/ML kodem, od konwencji kodowania przez zarządzanie modelami po optymalizację wydajności. Plik będzie pomagał w utrzymaniu spójności i jakości kodu podczas całego projektu. 

@@ -1,0 +1,65 @@
+KONWERSACJA: Dodanie obligatoryjnych zasad realizacji planu do .cursorrules
+DATA: 2025-07-23 21:33:20
+MODEL: Claude Sonnet 4
+
+=== PYTANIE UŻYTKOWNIKA ===
+ok, utworzone zasady są w porządku - ale chciałbym dodać jeszcze dotyczące konkretnie naszego planu na realizację. Zapisz je jako obligatoryjne gdzieś na samym początku zasad. Otóż chciałbym abyś realizował każdy etap samodzielnie, przed realizacją etapu, napisz mi, jakie są ewentualne trudności, oraz gdzie będziesz być może potrzebował mojej pomocy. Staraj się robić sam jak najwięcej. Po każdej dadanej nowej funkcjonalności rób test. Uzupełniaj plik PLAN.MD o informację jak został zrealizowany dany etap, oraz jakie wystąpiły w nim trudności. Po każdym etapie robimy commit z opisem co zostało zrealizowane. Narazie nie rób push - ja je będę robił ręcznie. 
+Podstawowa zasada - NIGDY nie mów, że zakończyłeś jakiś etap, jeśli nie przetestowałeś wcześniej wszelkich możliwych funkcjonalności i przypadków brzegowych, które mogą wystąpić. Jeśli będziesz przed jakimś etapem potrzebował jakiegoś hasła, API KEY, bądź np. utworzenia gdzieś konta - postaraj się to przewidzieć przed realizacją i zapytać mnie o te dane - dodasz to do zasad ?
+
+=== ANALIZA ZADANIA ===
+Użytkownik chce dodać bardzo konkretne i praktyczne zasady dotyczące metodologii realizacji planu projektu. Te zasady są kluczowe dla systematycznej i profesjonalnej pracy:
+
+1. Samodzielna realizacja etapów z analizą trudności przed rozpoczęciem
+2. Informowanie o potrzebach pomocy przed realizacją
+3. Testowanie po każdej nowej funkcjonalności  
+4. Uzupełnianie PLAN.MD o informacje o realizacji i trudnościach
+5. Commit po każdym etapie (bez push)
+6. FUNDAMENTALNA ZASADA: Nigdy nie mówić o zakończeniu bez pełnego testowania
+7. Przewidywanie potrzeb zewnętrznych (API keys, hasła, konta) przed realizacją
+
+Te zasady powinny być na samym początku pliku .cursorrules jako nadrzędne.
+
+=== ODPOWIEDŹ ASYSTENTA ===
+Dodano na początku pliku .cursorrules sekcję "🚨 OBLIGATORYJNE ZASADY REALIZACJI PLANU" zawierającą:
+
+**📋 Proces realizacji etapów:**
+1. **PRZED REALIZACJĄ ETAPU**:
+   - Przeanalizuj etap z PLAN.MD
+   - Napisz użytkownikowi o trudnościach i potrzebach pomocy
+   - Sprawdź potrzeby API keys, haseł, kont - zapytaj PRZED rozpoczęciem
+   - Upewnij się, że masz wszystkie wymagane dane
+
+2. **PODCZAS REALIZACJI**:
+   - Rób sam jak najwięcej
+   - Po każdej nowej funkcjonalności rób test
+   - Testuj wszystkie przypadki brzegowe
+   - Dokumentuj kod zgodnie z zasadami
+
+3. **PO ZAKOŃCZENIU ETAPU**:
+   - Uzupełnij PLAN.MD o realizację i trudności
+   - Oznacz ukończone punkty ✅ z datą
+   - Przygotuj commit (bez push)
+
+**⚠️ ZASADA FUNDAMENTALNA:**
+NIGDY nie mów o zakończeniu etapu bez przetestowania wszystkich funkcjonalności i przypadków brzegowych!
+
+**Testowanie musi obejmować:**
+- ✅ Funkcjonalność podstawową
+- ✅ Przypadki brzegowe
+- ✅ Obsługę błędów  
+- ✅ Wydajność na różnych danych
+- ✅ Kompatybilność
+
+**📊 Format aktualizacji PLAN.MD** z szablonem dla każdego ukończonego etapu.
+
+**🔐 Lista wymaganych danych zewnętrznych** do sprawdzenia przed realizacją.
+
+=== WYKONANE DZIAŁANIA ===
+1. Pobranie aktualnego czasu: 2025-07-23 21:33:20
+2. Dodanie sekcji "OBLIGATORYJNE ZASADY REALIZACJI PLANU" na początek .cursorrules
+3. Wprowadzenie wszystkich zasad metodologicznych zgodnie z wymaganiami
+4. Utworzenie snapshot: dodanie_obligatoryjnych_zasad_realizacji_planu
+5. Zapisanie tego loga konwersacji
+
+=== REZULTAT ===
+Plik .cursorrules został uzupełniony o kluczowe zasady metodologiczne realizacji projektu. Zasady są umieszczone na samym początku jako nadrzędne względem wszystkich innych. Teraz każda realizacja etapu będzie przebiegać według ustalonej metodologii: analiza → realizacja → testowanie → dokumentacja → commit. Fundamentalna zasada o konieczności pełnego testowania przed deklarowaniem zakończenia etapu zapewni wysoką jakość implementacji. 

@@ -1,0 +1,107 @@
+# 🤖 System Grupowania Osób na Zdjęciach - GitIgnore
+
+# === MODELE AI I DANE ===
+models/                    # Pobrane modele YOLO, InsightFace, etc.
+*.pt                      # PyTorch model files
+*.onnx                    # ONNX model files
+*.pkl                     # Pickle files (results, cache)
+*.pth                     # PyTorch checkpoint files
+
+# === DANE WEJŚCIOWE I WYNIKI ===
+data/                     # Dane wejściowe (zdjęcia, datasets)
+photos/                   # Zdjęcia testowe
+images/                   # Obrazy wejściowe
+results/                  # Wyniki grupowania
+output/                   # Pliki wyjściowe
+temp/                     # Pliki tymczasowe
+downloads/                # Pobrane pliki
+cache/                    # Cache files
+
+# === DEPENDENCIES I VENDOR ===
+vendor/                   # Vendor dependencies
+venv/                     # Virtual environment
+env/                      # Alternative venv name
+.venv/                    # Hidden venv
+node_modules/             # Node.js (jeśli będzie web interface)
+
+# === PYTHON CACHE I KOMPILOWANE ===
+__pycache__/              # Python cache
+*.py[cod]                 # Python compiled files
+*$py.class                # Python class files
+*.so                      # Shared objects
+*.egg-info/               # Egg info
+.Python                   # Python
+build/                    # Build artifacts
+develop-eggs/             # Development eggs
+dist/                     # Distribution
+.eggs/                    # Eggs
+
+# === KONFIGURACJA I ŚRODOWISKO ===
+.env                      # Environment variables
+.env.local                # Local environment
+.env.production           # Production environment
+config.local.json         # Local config overrides
+credentials.json          # Credentials file
+*.key                     # Key files
+*.pem                     # Certificate files
+
+# === LOGI I DEBUGGING ===
+*.log                     # Log files (except .dev/logs/)
+!.dev/logs/               # Keep .dev/logs/ directory
+logs/                     # General logs directory
+debug/                    # Debug output
+profiling/                # Profiling results
+
+# === SYSTEM FILES ===
+.DS_Store                 # macOS
+.DS_Store?                # macOS variant
+._*                       # macOS resource forks
+.Spotlight-V100           # macOS Spotlight
+.Trashes                  # macOS Trash
+ehthumbs.db              # Windows thumbnails
+Thumbs.db                # Windows thumbnails
+Desktop.ini              # Windows desktop config
+
+# === IDE I EDITOR ===
+.vscode/                  # VS Code (local settings)
+!.vscode/settings.json    # Keep shared VS Code settings
+.idea/                    # PyCharm/IntelliJ
+*.swp                     # Vim swap files
+*.swo                     # Vim swap files
+*~                        # Editor backup files
+
+# === TESTING I COVERAGE ===
+.coverage                 # Coverage reports
+htmlcov/                  # HTML coverage reports
+.pytest_cache/            # Pytest cache
+.tox/                     # Tox
+coverage.xml              # Coverage XML
+*.cover                   # Coverage files
+
+# === NOTEBOOKS ===
+.ipynb_checkpoints/       # Jupyter notebook checkpoints
+*.ipynb                   # Jupyter notebooks (if any)
+
+# === DEPLOYMENT ===
+docker-compose.override.yml  # Local Docker override
+.docker/                  # Docker build context
+kubernetes/local/         # Local K8s configs
+
+# === BACKUP I SNAPSHOTS ===
+*.bak                     # Backup files
+*.backup                  # Backup files
+snapshots/                # Manual snapshots (keep .dev/timeline/)
+!.dev/timeline/           # Keep timeline snapshots
+
+# === LARGE FILES ===
+*.zip                     # Archive files
+*.tar.gz                  # Archive files
+*.rar                     # Archive files
+*.7z                      # Archive files
+
+# === CUSTOM PROJECT SPECIFIC ===
+test_images/              # Local test images
+sample_data/              # Sample datasets
+benchmarks/               # Benchmark results
+experiments/              # Experimental code
+prototypes/               # Prototype implementations 
