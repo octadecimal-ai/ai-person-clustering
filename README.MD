@@ -670,7 +670,9 @@ system.config['debug_output_dir'] = './debug'
 
 ## 📄 Licencja
 
-MIT License - zobacz [LICENSE](LICENSE) dla szczegółów.
+Proprietary License - All Rights Reserved. Zobacz plik [LICENSE](LICENSE) dla szczegółów.
+
+Ten software jest własnością autora. Wszelkie nieautoryzowane kopiowanie, modyfikacja, dystrybucja lub użycie tego oprogramowania jest surowo zabronione bez wyraźnej pisemnej zgody właściciela praw autorskich.
 
 ## 🙏 Podziękowania
 
